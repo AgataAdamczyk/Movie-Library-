@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.css';
-import ListWrapper from './components/ListWrapper/ListWrapper';
+import List from './components/List/List';
 import Form from './components/Form/Form';
 
 import inceptionImage from './assets/images/inception.jpeg';
@@ -60,7 +60,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        < ListWrapper
+        < List
           items={this.state.items}
         />
         < Form submitFn={this.addMovie} />

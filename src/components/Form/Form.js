@@ -1,58 +1,33 @@
 import React from 'react';
+import Input from '../Input/Input';
+import Button from '../Button/Button';
+import Title from '../Title/Title';
 import styles from './Form.module.scss';
 
 const Form = ({ submitFn }) => (
     <div className={styles.wrapper}>
-        <h2>Add new movie</h2>
-        <form className={styles.form} onSubmit={submitFn}>
+        <Title>Add new movie</Title>
+        <form autoComplete="off" className={styles.form} onSubmit={submitFn}>
+            <Input 
+                name="name"
+                label="Title"
+                maxLength={30}
+            />
+             <Input 
+                name="imdbLink"
+                label="Imdb link"
+            />
+             <Input 
+                name="image"
+                label="Image"
+            />
+             <Input 
+                tag="textarea"
+                name="description"
+                label="Description"
+            />
 
-            <div className={styles.formItem}>
-                <input
-                    className={styles.input}
-                    type="text"
-                    name="title"
-                    id="title"
-                    placeholder=" " 
-                    maxLength="30" 
-                />
-                <label className={styles.label} htmlFor="title">Title</label>
-                <div className={styles.formItemBar}></div>
-            </div>
-
-            <div className={styles.formItem}>
-                <input 
-                    className={styles.input}
-                    type="text"
-                    name="imdbLink"
-                    id="imdbLink"
-                    placeholder=" " 
-                />
-                <label className={styles.label} htmlFor="imdbLink">Imdb link</label>
-                <div className={styles.formItemBar}></div>
-            </div>
-            <div className={styles.formItem}>
-                <input 
-                    className={styles.input}
-                    type="text"
-                    name="image"
-                    id="image"
-                    placeholder=" " 
-                />
-                <label className={styles.label} htmlFor="image">Image</label>
-                <div className={styles.formItemBar}></div>
-            </div>
-            <div className={styles.formItem}>
-                <textarea
-                    className={styles.textarea}
-                    name="description"
-                    id="description"
-                    placeholder=" " 
-                />
-                <label className={styles.label} htmlFor="description">Description</label>
-                <div className={styles.formItemBar}></div>
-            </div>
-           
-            <button  className={styles.button}>Add new position</button>
+            <Button>Add new position</Button>
         </form>
     </div>
 );
