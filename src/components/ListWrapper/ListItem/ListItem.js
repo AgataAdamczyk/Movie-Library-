@@ -6,7 +6,7 @@ const ListItem = ({
     image,
     title, 
     description, 
-    link
+    imdbLink
  }) => (
     <li className="listItem__wrapper">
         <img 
@@ -17,7 +17,8 @@ const ListItem = ({
         <div>
             <h2 className="listItem__title">{title}</h2>
             <p className="listItem__description">{description}</p>
-            <a href={link}
+            <a href={imdbLink}
+            target="_blank" rel="noopener noreferrer"
             className="listItem__button">visit imdb page</a>
         </div>
     </li>
@@ -27,7 +28,7 @@ ListItem.propTypes = {
     image: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     description: PropTypes.string,
-    link: PropTypes.string.isRequired,
+    imdbLink: PropTypes.string.isRequired,
 };
 
 ListItem.defaultProps = {

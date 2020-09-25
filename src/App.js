@@ -8,7 +8,7 @@ import sevenImage from './assets/images/seven.jpg';
 import suckerPunchImage from './assets/images/suckerPunch.jpg';
 import runningScaredImage from './assets/images/runningScared.jpg';
 
-const initialState = [
+const initialStateItems = [
   {
     image: inceptionImage,
     title: 'Inception',
@@ -37,12 +37,24 @@ const initialState = [
 
 class App extends React.Component {
   state = {
-    items: [...initialState]
+    items: [...initialStateItems]
   }
 
   addMovie = (e) => {
     e.preventDefault();
     
+    const newItem = {
+      title: e.target[0].value,
+      imdbLink: e.target[1].value,
+      image: e.target[2].value,
+      description: e.target[3].value,
+    }
+
+    this.setState(prevState => ({
+      items: [...prevState.items, newItem],
+    }));
+
+    e.target.reset();
   }
 
   render() {
@@ -51,7 +63,7 @@ class App extends React.Component {
         < ListWrapper
           items={this.state.items}
         />
-        < Form />
+        < Form submitFn={this.addMovie} />
       </div>
     )
   }
