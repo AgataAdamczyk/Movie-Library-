@@ -1,12 +1,16 @@
 import React from 'react';
-import './index.css';
-import List from './components/List/List';
-import Form from './components/Form/Form';
+import '../../index.css';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import TwitterView from '../TwitterView/TwitterView';
+import ArticlesView from '../ArticlesView/ArticlesView';
+import NotesView from '../NotesView/NotesView';
+import Header from '../../components/Header/Header';
 
-import inceptionImage from './assets/images/inception.jpeg';
-import sevenImage from './assets/images/seven.jpg';
-import suckerPunchImage from './assets/images/suckerPunch.jpg';
-import runningScaredImage from './assets/images/runningScared.jpg';
+import inceptionImage from '../../assets/images/inception.jpeg';
+import sevenImage from '../../assets/images/seven.jpg';
+import suckerPunchImage from '../../assets/images/suckerPunch.jpg';
+import runningScaredImage from '../../assets/images/runningScared.jpg';
+
 
 const initialStateItems = [
   {
@@ -35,7 +39,7 @@ const initialStateItems = [
   },
 ]
 
-class App extends React.Component {
+class Root extends React.Component {
   state = {
     items: [...initialStateItems]
   }
@@ -59,14 +63,18 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        < List
-          items={this.state.items}
-        />
-        < Form submitFn={this.addMovie} />
-      </div>
+      <BrowserRouter>
+        <>
+          <Header/>
+          <Switch>
+            <Route exact path="/" component={TwitterView}/>
+            <Route exact path="/articles" component={ArticlesView}/>
+            <Route exact path="/notes" component={NotesView}/>
+          </Switch>
+        </>
+      </BrowserRouter>
     )
   }
 }
 
-export default App;
+export default Root;
