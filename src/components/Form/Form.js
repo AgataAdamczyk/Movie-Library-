@@ -1,35 +1,98 @@
 import React from 'react';
+import AppContext from '../../context';
+import styles from './Form.module.scss';
 import Input from '../Input/Input';
 import Button from '../Button/Button';
 import Title from '../Title/Title';
-import styles from './Form.module.scss';
+import Radio from './Radio/Radio';
 
-const Form = ({ submitFn }) => (
-    <div className={styles.wrapper}>
-        <Title>Add new movie</Title>
-        <form autoComplete="off" className={styles.form} onSubmit={submitFn}>
-            <Input 
-                name="name"
-                label="Title"
-                maxLength={30}
-            />
-             <Input 
-                name="imdbLink"
-                label="Imdb link"
-            />
-             <Input 
-                name="image"
-                label="Image"
-            />
-             <Input 
-                tag="textarea"
-                name="description"
-                label="Description"
-            />
+const types = {
+    twitter: 'twitter',
+    article: 'article',
+    note: 'note',
+};
 
-            <Button>Add new position</Button>
-        </form>
-    </div>
-);
+const descriptions = {
+    twitter: 'Fav Twitter',
+    article: 'Article',
+    note: 'Note',
+};
+
+class Form extends React.Component {
+    state = {
+        activeOption: types.twitter,
+    };
+
+    handeRadioButtonChange = (type) => {
+        this.setState({
+            activeOption: type,
+        });
+    };
+
+    render() {
+
+        const { activeOption } = this.state;
+
+        return (
+            <AppContext.Consumer>
+                {(context) => (
+                    <div className={styles.wrapper}>
+                    <Title>Add new {descriptions[activeOption]}</Title>
+                    <form 
+                        autoComplete="off" 
+                        className={styles.form} 
+                        onSubmit={context.addItem}
+                    >
+                        <div className={styles.formOptions}>
+                            <Radio
+                                id={types.twitter}
+                                checked={activeOption === types.twitter}
+                                changeFn={() => this.handeRadioButtonChange(types.twitter)}
+                            >
+                                Twitter
+                            </Radio>
+                            <Radio
+                                id={types.article}
+                                checked={activeOption === types.article}
+                                changeFn={() => this.handeRadioButtonChange(types.article)}
+                            >
+                                Article
+                            </Radio>
+                            <Radio
+                                id={types.note}
+                                checked={activeOption === types.note}
+                                changeFn={() => this.handeRadioButtonChange(types.note)}
+                            >
+                                Note
+                            </Radio>
+                        </div>
+                
+                        <Input 
+                            name="name"
+                            label={activeOption === types.twitter ? "Twitter Name" : "Title"}
+                            maxLength={30}
+                        />
+                        {activeOption !== types.note ? <Input 
+                            name="imdbLink"
+                            label={activeOption === types.twitter ? "Twitter link" : "Imdb link"}
+                        /> : null}
+                        {activeOption === types.twitter ? <Input 
+                            name="image"
+                            label="Image"
+                        /> : null}
+                        <Input 
+                            tag="textarea"
+                            name="description"
+                            label="Description"
+                        />
+            
+                        <Button>Add new position</Button>
+                    </form>
+                </div>
+                )}
+            </AppContext.Consumer>
+        )
+    }
+};
 
 export default Form;

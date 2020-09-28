@@ -5,6 +5,7 @@ const Button = ({
     children,
     href,
     secondary,
+    ...props
 }) => {
 
     const buttonClass = secondary ? styles.secondary : styles.button;
@@ -22,7 +23,7 @@ const Button = ({
                     {children}
                 </a>
             ) : (
-                <button className={buttonClass}>
+                <button className={buttonClass} {...props}>
                     {children}
                 </button>
             )
