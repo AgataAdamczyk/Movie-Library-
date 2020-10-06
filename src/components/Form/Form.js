@@ -7,25 +7,35 @@ import Title from '../Title/Title';
 import Radio from './Radio/Radio';
 
 const types = {
-    twitter: 'twitter',
-    article: 'article',
-    note: 'note',
+    movie: 'movie',
+    review: 'review',
+    quote: 'quote',
 };
 
 const descriptions = {
-    twitter: 'Fav Twitter',
-    article: 'Article',
-    note: 'Note',
+    movie: 'Movie',
+    review: 'Review',
+    quote: 'Quote',
 };
 
 class Form extends React.Component {
     state = {
-        activeOption: types.twitter,
+        activeOption: types.movie,
+        title: "",
+        imdbLink: "",
+        image: "",
+        description: "",
     };
 
     handeRadioButtonChange = (type) => {
         this.setState({
             activeOption: type,
+        });
+    };
+
+    handleInputChange = e => {
+        this.setState({
+            [e.target.name]: e.target.value,
         });
     };
 
@@ -41,46 +51,58 @@ class Form extends React.Component {
                     <form 
                         autoComplete="off" 
                         className={styles.form} 
-                        onSubmit={context.addItem}
+                        onSubmit={(e) => context.addItem(e, this.state)}
                     >
                         <div className={styles.formOptions}>
                             <Radio
-                                id={types.twitter}
-                                checked={activeOption === types.twitter}
-                                changeFn={() => this.handeRadioButtonChange(types.twitter)}
+                                id={types.movie}
+                                checked={activeOption === types.movie}
+                                changeFn={() => this.handeRadioButtonChange(types.movie)}
                             >
-                                Twitter
+                                Movies
                             </Radio>
                             <Radio
-                                id={types.article}
-                                checked={activeOption === types.article}
-                                changeFn={() => this.handeRadioButtonChange(types.article)}
+                                id={types.review}
+                                checked={activeOption === types.review}
+                                changeFn={() => this.handeRadioButtonChange(types.review)}
                             >
-                                Article
+                                Reviews
                             </Radio>
                             <Radio
-                                id={types.note}
-                                checked={activeOption === types.note}
-                                changeFn={() => this.handeRadioButtonChange(types.note)}
+                                id={types.quote}
+                                checked={activeOption === types.quote}
+                                changeFn={() => this.handeRadioButtonChange(types.quote)}
                             >
-                                Note
+                                Quotes
                             </Radio>
                         </div>
                 
                         <Input 
-                            name="name"
-                            label={activeOption === types.twitter ? "Twitter Name" : "Title"}
+                            onChange={this.handleInputChange}
+                            value={this.state.title}
+                            name="title"
+                            label={activeOption === types.movie ? "Movie title" : "Title"}
                             maxLength={30}
                         />
-                        {activeOption !== types.note ? <Input 
+                        {activeOption !== types.quote? (
+                        <Input 
+                            onChange={this.handleInputChange}
+                            value={this.state.imdbLink}
                             name="imdbLink"
-                            label={activeOption === types.twitter ? "Twitter link" : "Imdb link"}
-                        /> : null}
-                        {activeOption === types.twitter ? <Input 
+                            label={activeOption === types.movie ? "Twitter link" : "Imdb link"}
+                        />
+                        ) : null}
+                        {activeOption === types.movie ? (
+                        <Input 
+                            onChange={this.handleInputChange}
+                            value={this.state.image}
                             name="image"
                             label="Image"
-                        /> : null}
+                        /> 
+                        ) : null}
                         <Input 
+                            onChange={this.handleInputChange}
+                            value={this.state.description}
                             tag="textarea"
                             name="description"
                             label="Description"

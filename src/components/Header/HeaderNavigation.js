@@ -9,19 +9,19 @@ const HeaderNavigation = () => (
                 <NavLink exact
                 activeClassName={styles.navItemLinkActive}
                 className={styles.navItemLink} 
-                to="/">twitters</NavLink>
+                to="/">WatchList</NavLink>
             </li>
             <li className={styles.navItem}>
                 <NavLink 
                 activeClassName={styles.navItemLinkActive}
                 className={styles.navItemLink} 
-                to="/articles">articles</NavLink>
+                to="/reviews">Reviews</NavLink>
             </li>
             <li className={styles.navItem}>
                 <NavLink
                 activeClassName={styles.navItemLinkActive}
                 className={styles.navItemLink} 
-                to="/notes">notes</NavLink>
+                to="/quotes">Quotes</NavLink>
             </li>
         </ul>
     </nav>

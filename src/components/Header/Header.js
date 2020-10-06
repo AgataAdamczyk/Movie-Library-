@@ -6,9 +6,9 @@ import Button from '../Button/Button';
 
 const Header = ({ openModalFn }) => (
     <header className={styles.wrapper}>
-        <img className={styles.logo} src={logoImage} alt="FavNote logo"/>
+        <img className={styles.logo} src={logoImage} alt="MoviesLibrary logo"/>
         <HeaderNavigation/>
-        <Button onClick={openModalFn} secondary>new item</Button>
+        <Button onClick={openModalFn} secondary>Add +</Button>
     </header>
 
 );

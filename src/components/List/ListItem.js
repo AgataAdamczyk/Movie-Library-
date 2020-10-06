@@ -15,15 +15,15 @@ const ListItem = ({
 
     return(
         <li className={styles.wrapper}>
-        <ImageTag 
+        {image && <ImageTag 
             src={image} 
             className={image ? styles.image : styles.imageNone}
             alt={title}
-        />
+        />}
         <div>
             <Title>{title}</Title>
             <p className={styles.description}>{description}</p>
-            <Button href={imdbLink}>Imdb page</Button>
+            {imdbLink && <Button href={imdbLink}>Imdb page</Button>} 
         </div>
     </li>
     )
@@ -32,13 +32,13 @@ const ListItem = ({
 ListItem.propTypes = {
     image: PropTypes.string,
     title: PropTypes.string.isRequired,
-    description: PropTypes.string,
-    imdbLink: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    imdbLink: PropTypes.string,
 };
 
 ListItem.defaultProps = {
     image: null,
-    description: 'Click Imdb button',
+    imdbLink: null,
 }
 
 export default ListItem;

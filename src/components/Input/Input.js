@@ -6,7 +6,8 @@ const Input = ({
     tag: Tag,
     name,
     label,
-    maxLength
+    maxLength,
+    ...props
 }) => (
     <div className={styles.formItem}>
         <Tag
@@ -17,6 +18,7 @@ const Input = ({
             required
             maxLength={maxLength}
             placeholder=" "
+            {...props}
         />
     <label className={styles.label} htmlFor={name}>{label}</label>
     <div className={styles.formItemBar}></div>
