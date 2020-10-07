@@ -5,13 +5,13 @@ import styles from './List.module.scss';
 const List = ({ items }) => (
     <>
     {items.length ? (
-        <ul className={styles.listWrapper}>
+        <ul className={styles.wrapper}>
             {items.map(item => (
-              < ListItem key={item.title} {...item} />
+              <ListItem key={item.title} {...item} />
              ))}
         </ul>
     ) : (
-        <h1 class={styles.noItems}>There's nothing here yet, please add some items!</h1>
+        <h1 class={styles.noItems}>There's nothing here yet, please add some items <span role="img" aria-label="Heart">❤️</span></h1>
     )}
     </>
 );

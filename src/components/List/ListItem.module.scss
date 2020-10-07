@@ -11,7 +11,7 @@
 
 .wrapper {
     list-style: none;
-    padding: 50px 30px;
+    padding: 0 30px 60px 0;
     display: flex;
     align-items: center;
     position: relative;
@@ -23,13 +23,12 @@
     margin-right: 30px;
     width: 150px;
     height: 150px;
-    border-radius: 50%;
 }
 
 .imageNone {
     @extend .image;
 
-    background: url('https://unsplash.it/200/200')
+    background: url('../../assets/images/movies.png')
     no-repeat;
     background-size: cover;
 }
@@ -45,6 +44,6 @@
     padding: 7px 12px;
     font-weight: 500;
     background: none;
-    border: 2px solid #1E58FF;
-    color: #1E58FF;
+    border: 2px solid #f5c518;
+    color: #f5c518;
 }

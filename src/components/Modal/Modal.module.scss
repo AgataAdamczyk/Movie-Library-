@@ -1,20 +1,21 @@
 .wrapper {
-    padding: 70px 80px 50px;
+    padding: 50px;
     top: 50%;
     transform: translateY(-50%);
     left: 0;
     right: 0;
     margin: 0 auto;
-    width: 60vw;
+    width: 40vw;
     background-color: white;
-    box-shadow: 0 20px 40px -10px rgba(#818181, .5);
+    border-radius: 5px;
+    box-shadow: 0 20px 40px -10px rgba(#f5c518, .2);
     position: fixed;
 }
 
 .closeButton {
     width: 27px;
     height: 27px;
-    background: #1e58ff;
+    background: #f5c518;
     border: none;
     position: absolute;
     right: 30px;
@@ -30,6 +31,19 @@
         display: block;
         top: 50%;
         transform: translateY(-50%);
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 0 auto;
+        transform-origin: 50%;
+    }
+
+    &::before {
+        transform: rotate(45deg);
+    }
+
+    &::after {
+        transform: rotate(-45deg);
     }
 }
 

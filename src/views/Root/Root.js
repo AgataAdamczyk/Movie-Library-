@@ -6,18 +6,17 @@ import WatchList from '../WatchList/WatchList';
 import ReviewsView from '../ReviewsView/ReviewsView';
 import QuotesView from '../QuotesView/QuotesView';
 import Header from '../../components/Header/Header';
+import Modal from '../../components/Modal/Modal';
 
 import inceptionImage from '../../assets/images/inception.jpeg';
 import sevenImage from '../../assets/images/seven.jpg';
 import suckerPunchImage from '../../assets/images/suckerPunch.jpg';
 import runningScaredImage from '../../assets/images/runningScared.jpg';
-import Modal from '../../components/Modal/Modal';
-
 
 class Root extends React.Component {
   state = {
-    twitter: [
-        {
+    movie: [
+    {
     image: inceptionImage,
     title: 'Inception',
     description: 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.',
@@ -26,7 +25,7 @@ class Root extends React.Component {
   {
     image: sevenImage,
     title: 'Se7en',
-    // description: 'Two detectives, a rookie and a veteran, hunt a serial killer who uses the seven deadly sins as his motives.',
+    description: 'Two detectives, a rookie and a veteran, hunt a serial killer who uses the seven deadly sins as his motives.',
     imdbLink: 'https://www.imdb.com/title/tt0114369/?ref_=fn_al_tt_1',
   },
   {
@@ -42,8 +41,8 @@ class Root extends React.Component {
     imdbLink: 'https://www.imdb.com/title/tt0404390/?ref_=nv_sr_srsg_0',
   },
     ],
-    article: [],
-    note: [],
+    review: [],
+    quote: [],
     isModalOpen: false,
   };
 
@@ -81,8 +80,8 @@ class Root extends React.Component {
           < Header openModalFn={this.openModal} />
           <Switch>
             <Route exact path="/" component={WatchList} />
-            <Route exact path="/articles" component={ReviewsView} />
-            <Route exact path="/notes" component={QuotesView} />
+            <Route exact path="/reviews" component={ReviewsView} />
+            <Route exact path="/quotes" component={QuotesView} />
           </Switch>
           { isModalOpen && < Modal closeModalFn={this.closeModal} /> }
         </AppContext.Provider>

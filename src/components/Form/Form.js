@@ -13,23 +13,23 @@ const types = {
 };
 
 const descriptions = {
-    movie: 'Movie',
-    review: 'Review',
-    quote: 'Quote',
+    movie: 'movie to WatchList',
+    review: 'Your review',
+    quote: 'best quote',
 };
 
 class Form extends React.Component {
     state = {
-        activeOption: types.movie,
+        type: types.movie,
         title: "",
         imdbLink: "",
         image: "",
         description: "",
     };
 
-    handeRadioButtonChange = (type) => {
+    handeRadioButtonChange = type => {
         this.setState({
-            activeOption: type,
+            type: type,
         });
     };
 
@@ -40,14 +40,13 @@ class Form extends React.Component {
     };
 
     render() {
-
-        const { activeOption } = this.state;
+        const { type } = this.state;
 
         return (
             <AppContext.Consumer>
                 {(context) => (
                     <div className={styles.wrapper}>
-                    <Title>Add new {descriptions[activeOption]}</Title>
+                    <Title>Add new {descriptions[type]}</Title>
                     <form 
                         autoComplete="off" 
                         className={styles.form} 
@@ -56,21 +55,21 @@ class Form extends React.Component {
                         <div className={styles.formOptions}>
                             <Radio
                                 id={types.movie}
-                                checked={activeOption === types.movie}
+                                checked={type === types.movie}
                                 changeFn={() => this.handeRadioButtonChange(types.movie)}
                             >
                                 Movies
                             </Radio>
                             <Radio
                                 id={types.review}
-                                checked={activeOption === types.review}
+                                checked={type === types.review}
                                 changeFn={() => this.handeRadioButtonChange(types.review)}
                             >
                                 Reviews
                             </Radio>
                             <Radio
                                 id={types.quote}
-                                checked={activeOption === types.quote}
+                                checked={type === types.quote}
                                 changeFn={() => this.handeRadioButtonChange(types.quote)}
                             >
                                 Quotes
@@ -81,18 +80,18 @@ class Form extends React.Component {
                             onChange={this.handleInputChange}
                             value={this.state.title}
                             name="title"
-                            label={activeOption === types.movie ? "Movie title" : "Title"}
+                            label="Movie title"
                             maxLength={30}
                         />
-                        {activeOption !== types.quote? (
+                        {type !== types.quote? (
                         <Input 
                             onChange={this.handleInputChange}
                             value={this.state.imdbLink}
                             name="imdbLink"
-                            label={activeOption === types.movie ? "Twitter link" : "Imdb link"}
+                            label="Imbd link"
                         />
                         ) : null}
-                        {activeOption === types.movie ? (
+                        {type === types.movie ? (
                         <Input 
                             onChange={this.handleInputChange}
                             value={this.state.image}
@@ -105,10 +104,10 @@ class Form extends React.Component {
                             value={this.state.description}
                             tag="textarea"
                             name="description"
-                            label="Description"
+                            label={type === types.quote ? "Quote" : "Description"}
                         />
             
-                        <Button>Add new position</Button>
+                        <Button>Add position</Button>
                     </form>
                 </div>
                 )}

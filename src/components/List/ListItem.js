@@ -30,10 +30,10 @@ const ListItem = ({
  };
 
 ListItem.propTypes = {
-    image: PropTypes.string,
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     imdbLink: PropTypes.string,
+    image: PropTypes.string,
 };
 
 ListItem.defaultProps = {

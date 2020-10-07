@@ -7,7 +7,7 @@ const Radio = ({
     changeFn,
     children
  }) => (
-    <label for={id} className={styles.radio}>
+    <label className={styles.radio}>
         <input
             id={id}
             type="radio"
