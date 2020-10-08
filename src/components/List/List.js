@@ -11,7 +11,7 @@ const List = ({ items }) => (
              ))}
         </ul>
     ) : (
-        <h1 class={styles.noItems}>There's nothing here yet, please add some items <span role="img" aria-label="Heart">❤️</span></h1>
+        <h1 className={styles.noItems}>There's nothing here yet, please add some items <span role="img" aria-label="Heart">❤️</span></h1>
     )}
     </>
 );

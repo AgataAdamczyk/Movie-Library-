@@ -81,7 +81,6 @@ class Form extends React.Component {
                             value={this.state.title}
                             name="title"
                             label="Movie title"
-                            maxLength={30}
                         />
                         {type !== types.quote? (
                         <Input 

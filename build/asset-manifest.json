@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.668033a8.chunk.css",
+    "main.js": "/static/js/main.336eafed.chunk.js",
+    "main.js.map": "/static/js/main.336eafed.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.92ee656d.js",
+    "runtime-main.js.map": "/static/js/runtime-main.92ee656d.js.map",
+    "static/js/2.1e268b17.chunk.js": "/static/js/2.1e268b17.chunk.js",
+    "static/js/2.1e268b17.chunk.js.map": "/static/js/2.1e268b17.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.42237f810e6e81fa233e4b9808fb8435.js": "/precache-manifest.42237f810e6e81fa233e4b9808fb8435.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.668033a8.chunk.css.map": "/static/css/main.668033a8.chunk.css.map",
+    "static/js/2.1e268b17.chunk.js.LICENSE.txt": "/static/js/2.1e268b17.chunk.js.LICENSE.txt",
+    "static/media/inception.jpeg": "/static/media/inception.0b3d78e1.jpeg",
+    "static/media/logo.svg": "/static/media/logo.7c963cb3.svg",
+    "static/media/ListItem.module.scss": "/static/media/movies.c05cefae.png",
+    "static/media/runningScared.jpg": "/static/media/runningScared.66720980.jpg",
+    "static/media/seven.jpg": "/static/media/seven.5303d29a.jpg",
+    "static/media/suckerPunch.jpg": "/static/media/suckerPunch.d5e4799b.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.92ee656d.js",
+    "static/js/2.1e268b17.chunk.js",
+    "static/css/main.668033a8.chunk.css",
+    "static/js/main.336eafed.chunk.js"
+  ]
+}
